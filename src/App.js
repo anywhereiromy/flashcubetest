@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
-// import Nav from './components/Nav';
+import Nav from './components/Nav';
 import Home from './components/Home';
 import Topic from './components/Topic';
 import Topics from './components/Topics';
 import Grid from './components/Grid';
 import Achievements from './components/Achievements';
-// import Button from './components/Button';
 
 class App extends Component {
 
@@ -20,7 +19,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App" >
-          {/* <Route path="*" component={Nav}/> */}
+          <Route path="*" render={(props) => {
+              return <Nav {...props} userProfile={userProfile} />
+              }}/>
           <Route exact path="/" render={(props) => {
               return <Home {...props} userProfile={userProfile} />
               }} /> 

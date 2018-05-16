@@ -3,7 +3,8 @@ import React from 'react';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 // import PT from 'prop-types';
-const Ons = require('react-onsenui');
+import { Page, Card } from "react-onsenui";
+import bootstrap from "bootstrap";
 
 class Grid extends React.Component {
 
@@ -64,11 +65,13 @@ class Grid extends React.Component {
         const { cards } = this.state; 
         return (
             <div className="test-page learn-page" >
-                <Ons.Page className="grid-container">
+                <Page className="grid-container">
                     {cards.map((card, index) => {
-                    return <Ons.Card className="grid-item" key={index} onClick={() => this.handleClick(index)}>{card.displayFront ? `${card.frontside} ${index}!` : `${card.backside} ${index}.`}</Ons.Card>
+                    return <Card className="grid-item" key={index} onClick={() => this.handleClick(index)}>{card.displayFront ? `${card.frontside} ${index}!` : `${card.backside} ${index}.`}</Card>
                     })}
-                </Ons.Page>
+
+                    <div class="react-card"></div>
+                </Page>
             </div>
         );
     }

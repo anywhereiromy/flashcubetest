@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import PT from 'prop-types';
-const Ons = require('react-onsenui');
+import { ListHeader, SearchInput, List, ListItem } from "react-onsenui";
 
 class Topics extends React.Component {
 
@@ -72,9 +72,9 @@ class Topics extends React.Component {
         const { match } = this.props;
         return (
             <div>
-                <Ons.ListHeader> Topics</Ons.ListHeader>
-                <Ons.SearchInput type="search" value={this.state.topicSearch} placeholder="Topic" onChange={this.handleChange}></Ons.SearchInput>
-                <Ons.List
+                <ListHeader> Topics</ListHeader>
+                <SearchInput type="search" value={this.state.topicSearch} placeholder="Topic" onChange={this.handleChange}></SearchInput>
+                <List
                     renderRow={this.renderRows}
                 />
                 
@@ -97,7 +97,7 @@ class Topics extends React.Component {
             }
             return 0;
         }).map((topic, index) => {
-            return <Ons.ListItem key={index}>
+            return <ListItem key={index}>
                 {/* <div className='left'>
                     <img src={`http://placekitten.com/g/${x}/${y}`} className='list-item__thumbnail' />
                 </div> */}
@@ -105,7 +105,7 @@ class Topics extends React.Component {
                     {topic.title}
                     <Link key={topic.title} className={this.props.match.url === `/topics/${topic.title}` ? "active" : ''} to={`/topics/${topic.title}`}>{topic.title}</Link>
                 </div>
-            </Ons.ListItem>
+            </ListItem>
         }) 
     }
 

@@ -1,28 +1,64 @@
 .App {
   text-align: center;
+  background-size: cover;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.home {
+  background-size: cover;
+  display:inline-block;
+  text-align:center;
+  height:100%;
+  object-fit: cover;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+img { 
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navbar {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.navbar:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar:active {
+  background-color: #4CAF50;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+#navbar {
+  overflow: hidden;
+  background-color: blue;
 }
 
-.App-intro {
-  font-size: large;
+#flashcubeHomeLogoContainer {
+  transform: rotate(45deg);
+  transition: transform 2s;
+}
+  /* animation: flashcubeHomeLogo-spin infinite 20s linear;
 }
 
-@keyframes App-logo-spin {
+@keyframes flashcubeHomeLogo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+} */
+
+#flashcubeHomeLogo {
+  margin: 50px;
+  transform: rotate(-45deg);
+  
+}
+
+#flashcubeHomeLogoContainer:hover {
+  transform:  rotateY(180deg) rotate(45deg); /* notice the order */
 }
