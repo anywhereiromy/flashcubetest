@@ -7,8 +7,8 @@ class Topic extends React.Component {
         const { topic } = this.props.match.params;
         return (
             <div>
-                <Link className="learn" to={`/topics/${topic}/learn`} >{`Learn about ${topic}`}</Link>
-                <Link className="test" to={`/topics/${topic}/test`} >{`Take a test about ${topic}`}</Link>
+                <Link className="learnOrTestButton" to={`/topics/${topic}/learn`} >{`Learn about ${topic}`}</Link>
+                <Link className="learnOrTestButton" to={`/topics/${topic}/test`} >{`Take a test about ${topic}`}</Link>
                 <p>Related datasets...</p>
             </div>
         );

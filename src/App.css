@@ -1,10 +1,20 @@
+@font-face {
+  font-family: 'ForcedSquare';
+  src: url('./FORCEDSQUARE.ttf') format('truetype');
+}
+body {
+  font-family: 'ForcedSquare';
+}
+
 .App {
   text-align: center;
   background-size: cover;
+  background-color: blue;  
 }
 
 .home {
   background-size: cover;
+  background-color: blue;  
   display:inline-block;
   text-align:center;
   height:100%;
@@ -24,11 +34,12 @@ img {
   text-align: center;
   padding: 14px;
   text-decoration: none;
+  font-family: 'ForcedSquare' Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .navbar:hover {
-  background-color: #ddd;
-  color: black;
+  color:yellow;
+  background-color: lightblue;    
 }
 
 .navbar:active {
@@ -41,17 +52,16 @@ img {
   background-color: blue;
 }
 
+.login {
+  background-color: blue;  
+  color: white;
+  padding: 14px;  
+}
+
 #flashcubeHomeLogoContainer {
   transform: rotate(45deg);
   transition: transform 2s;
 }
-  /* animation: flashcubeHomeLogo-spin infinite 20s linear;
-}
-
-@keyframes flashcubeHomeLogo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
 
 #flashcubeHomeLogo {
   margin: 50px;
@@ -60,5 +70,50 @@ img {
 }
 
 #flashcubeHomeLogoContainer:hover {
-  transform:  rotateY(180deg) rotate(45deg); /* notice the order */
+  transform:  rotateY(180deg) rotate(45deg); 
+}
+
+.topicListItem {
+  background-color: blue;  
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.topicListItem {
+  background-color: blue;  
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.topicListItem:hover {
+  color:yellow;
+  background-color: lightblue;    
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.learnOrTestButton {
+  background-color: blue;  
+  color: #f2f2f2;
+  display:inline-block;
+  border:1px solid #CCC;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+  cursor:pointer;
+  vertical-align:middle;
+  max-width: 100px;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;  
+}
+
+.learnOrTestButton:hover {
+  color:yellow;
+  background-color: lightblue;    
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+  text-decoration: none;  
 }

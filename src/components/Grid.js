@@ -12,49 +12,49 @@ class Grid extends React.Component {
         cards: [
             {
                 title: 'Card', 
-                frontside: 'This is card', 
+                frontside: 'This is the front of card', 
                 backside: 'This is the back of card', 
                 displayFront: true
             },
             {
                 title: 'Card', 
-                frontside: 'This is card', 
+                frontside: 'This is the front of card', 
                 backside: 'This is the back of card', 
                 displayFront: true
             },
             {
                 title: 'Card', 
-                frontside: 'This is card', 
+                frontside: 'This is the front of card', 
                 backside: 'This is the back of card', 
                 displayFront: true
             },
             {
                 title: 'Card', 
-                frontside: 'This is card', 
+                frontside: 'This is the front of card', 
                 backside: 'This is the back of card', 
                 displayFront: true
             },
             {
                 title: 'Card', 
-                frontside: 'This is card', 
+                frontside: 'This is the front of card', 
                 backside: 'This is the back of card', 
                 displayFront: true
             },
             {
                 title: 'Card', 
-                frontside: 'This is card', 
+                frontside: 'This is the front of card', 
                 backside: 'This is the back of card', 
                 displayFront: true
             },
             {
                 title: 'Card', 
-                frontside: 'This is card', 
+                frontside: 'This is the front of card', 
                 backside: 'This is the back of card', 
                 displayFront: true
             },
             {
                 title: 'Card', 
-                frontside: 'This is card', 
+                frontside: 'This is the front of card', 
                 backside: 'This is the back of card', 
                 displayFront: true
             }
@@ -70,15 +70,19 @@ class Grid extends React.Component {
                     return <Card className="grid-item" key={index} onClick={() => this.handleClick(index)}>{card.displayFront ? `${card.frontside} ${index}!` : `${card.backside} ${index}.`}</Card>
                     })}
 
-                    <div class="react-card"></div>
+                    <div className="react-card"></div>
                 </Page>
             </div>
         );
     }
 
     handleClick = (index) => {
-        const newCards = this.state.map((card, i) => {
-            if (i === index) card.displayFront = !this.state.displayFront;
+        console.log(index);
+        const newCards = this.state.cards.map((card, i) => {
+            console.log(i);
+            if (i === index) {
+                card.displayFront = !this.state.cards[i].displayFront;
+            }
             return card;
         });
         this.setState({

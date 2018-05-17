@@ -40,6 +40,9 @@ class App extends Component {
           <Route path="/users/:userId/achievements" render={(props) => {
             return <Achievements {...props} userProfile={userProfile} logout={this.logout}/>
             }} />  
+          <Route exact path="/users//achievements" render={(props) => {
+            return <Achievements {...props} userProfile={userProfile} logout={this.logout}/>
+            }} /> 
         </div>
       </Router>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import PT from 'prop-types';
-import { ListHeader, SearchInput, List, ListItem } from "react-onsenui";
+import { ListHeader, SearchInput } from "react-onsenui";
 
 class Topics extends React.Component {
 
@@ -70,43 +70,31 @@ class Topics extends React.Component {
 
     render () {
         const { match } = this.props;
+        const { topicSearch, topics } = this.state
         return (
             <div>
-                <ListHeader> Topics</ListHeader>
-                <SearchInput type="search" value={this.state.topicSearch} placeholder="Topic" onChange={this.handleChange}></SearchInput>
-                <List
-                    renderRow={this.renderRows}
-                />
-                
-                {this.state.topics.map((topic, index) => {
-                    return <Link key={topic.title} className={match.url === `/topics/${topic.title}` ? "active" : ''} to={`/topics/${topic.title}`}>{topic.title}</Link> 
-                })}
+                <ListHeader>Topics</ListHeader>
+                <SearchInput type="search" value={topicSearch} placeholder="Topic" onChange={this.handleChange}></SearchInput>                
+                {
+                    topicSearch ? topics.reduce((acc, topic) => {
+                        if (topic.title.toLowerCase().includes(topicSearch.toLowerCase())) {
+                          acc.push(<div className="topicListItem" key={topic.title}>
+                                <Link key={topic.title} className={match.url === `/topics/${topic.title}` ? "topicListItem active" : "topicListItem"} to={`/topics/${topic.title}`}>{topic.title}</Link>
+                            </div>
+                          );
+                        } 
+                        return acc;
+                    }, []) 
+                    : topics.map((topic, index) => {
+                        return (
+                        <div className="topicListItem" key={topic.title}>
+                            <Link key={topic.title} className={match.url === `/topics/${topic.title}` ? "topicListItem active" : "topicListItem"} to={`/topics/${topic.title}`}>{topic.title}</Link>
+                        </div>
+                        )
+                    })
+                }
             </div>
         );
-    }
-
-    renderRows = () => {
-        this.state.topics.sort((topic1, topic2) => {
-            const title1 = topic1.title.toUpperCase();
-            const title2 = topic2.title.toUpperCase();
-            if (title1 < title2) {
-                return -1;
-              }
-            if (title1 > title2) {
-                return 1;
-            }
-            return 0;
-        }).map((topic, index) => {
-            return <ListItem key={index}>
-                {/* <div className='left'>
-                    <img src={`http://placekitten.com/g/${x}/${y}`} className='list-item__thumbnail' />
-                </div> */}
-                <div className='center'>
-                    {topic.title}
-                    <Link key={topic.title} className={this.props.match.url === `/topics/${topic.title}` ? "active" : ''} to={`/topics/${topic.title}`}>{topic.title}</Link>
-                </div>
-            </ListItem>
-        }) 
     }
 
     handleChange = (e) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ListHeader } from "react-onsenui";
 import PT from 'prop-types';
 
 class Achievements extends React.Component {
@@ -6,11 +7,12 @@ class Achievements extends React.Component {
         const { id } = this.props.userProfile
         return (
             <div>
-                {id ? <div className="achievements">
+                <ListHeader>Achievements</ListHeader>
+                {id ? <div className="login achievements">
                         Achievements
                     </div> 
                     :
-                    <div className="login">Login</div>}
+                    <div className="login achievements">Login</div>}
             </div>
         );
     }
